@@ -24,15 +24,17 @@ namespace Infrastructure.Data
                 if (!_context.HistoricalSequences.Any())
                 {
                     var historicalSequences = GetHistoricalSequences();
-                    _context.HistoricalSequences.AddRange(historicalSequences); // incorrect data order
-                    _context.SaveChanges();
+                    foreach (var entity in historicalSequences)
+                    {
+                        _context.HistoricalSequences.Add(entity);
+                        _context.SaveChanges();
+                    }
                 }
             }
         }
 
         public IEnumerable<HistoricalSequence> GetHistoricalSequences()
         {
-            //var rootPath = Directory.GetCurrentDirectory();
             var rootPath = @"C:\Users\mmast\OneDrive\BOX\projects\programming\colectiva\Colectiva\Infrastructure\Data";
             var fileName = "HistoricalSequences.json";
             var filePath = $"{rootPath}\\{fileName}";
@@ -42,19 +44,7 @@ namespace Infrastructure.Data
 
             var historicalSequences = JsonSerializer.Deserialize<IEnumerable<HistoricalSequence>>(jsonString).ToList();
 
-            for (int i = 1; i <= historicalSequences.Count;)
-            {
-                foreach (var sequence in historicalSequences)
-                {
-                    if (sequence.Sn == i)
-                    {
-                        orderedSequence.Add(sequence);
-                        i++;
-                    }
-                }
-            }
-
-            return orderedSequence;
+            return historicalSequences.OrderBy(h => h.Sn).ToList();
         }
     }
 }
