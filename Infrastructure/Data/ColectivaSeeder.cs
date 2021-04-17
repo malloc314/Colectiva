@@ -24,7 +24,7 @@ namespace Infrastructure.Data
                 if (!_context.HistoricalSequences.Any())
                 {
                     var historicalSequences = GetHistoricalSequences();
-                    _context.HistoricalSequences.AddRange(historicalSequences);
+                    _context.HistoricalSequences.AddRange(historicalSequences); // incorrect data order
                     _context.SaveChanges();
                 }
             }
