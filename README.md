@@ -21,7 +21,7 @@ C# | `9.0`
 MS SQL Server | `18`
 
 # Project structure
-The backend application project created in the **REST API** standard with high responsiveness and security in mind has been divided into layers according to the principles of **clean architecture**:
+The backend application project created in the **REST API** standard with high responsiveness and security in mind has been divided into layers according to the principles of **Clean Architecture**:
 
 Layer | Description
 ------------- | -------------
