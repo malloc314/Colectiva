@@ -1,4 +1,5 @@
 ﻿# Colectiva API
+![](https://raw.githubusercontent.com/malloc314/Colectiva/4b49c9fe9ccbbea6b1fd22499e294cf17ed42872/Docs/Colectiva-logo.svg)
 
 
 **Table of Contents**
