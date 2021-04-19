@@ -33,13 +33,17 @@ WebAPI | Controllers
 # Available endpoints
 Currently implemented and available endpoints.
 
-> Download the entire history of eurojackpot draws
+> Get the entire history of eurojackpot draws
 
-- [x] **`GET` api/** 
+- [x] **`GET` /api/HistoricalSequence** 
 
-> Downloading pseudo-probable sequences
+> Get historical sequence by serial number
 
-- [ ]  **`GET` api/** 
+- [x]  **`GET` /api/HistoricalSequence/{sn}** 
+
+> Get pseudo-probable sequences
+
+- [ ]  **`GET` /api/PseudoProbableSequence** 
 
 > User identification
 
