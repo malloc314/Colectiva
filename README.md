@@ -9,7 +9,7 @@
 - [License](#license "License")
 
 # Description
-The colectiva mathematical engine allows you to generate **pseudo-probable** number sequences for games of chance based on **statistics and probability**. The current version of the application focuses on the draw of sequences for the Eurojackpot game.
+The colectiva mathematical engine allows you to generate **pseudo-probable** number sequences for games of chance based on **statistics** and **probability**. The current version of the application focuses on the draw of sequences for the Eurojackpot game.
 
 # Work environment
 The environment used to create the project:
@@ -21,7 +21,7 @@ C# | `9.0`
 MS SQL Server | `18`
 
 # Project structure
-The backend application project created in the **REST API** standard with high responsiveness and security in mind has been divided into layers according to the principles of clean architecture:
+The backend application project created in the **REST API** standard with high responsiveness and security in mind has been divided into layers according to the principles of **clean architecture**:
 
 Layer | Description
 ------------- | -------------
