@@ -2,12 +2,12 @@
 
 
 **Table of Contents**
-- [Description](#Description "Description")
-- [Work environment](#Work "Work")
-- [Project structure](#Project "Project")
-- [Available endpoints](#endpoints "endpoints")
-- [Available solutions](#solutions "solutions")
-- [License](#License "License")
+- [Description](#description "Description")
+- [Work environment](#work environment "Work environment")
+- [Project structure](#project structure "Project structure")
+- [Available endpoints](#available endpoints "Available endpoints")
+- [Available solutions](#available solutions "Available solutions")
+- [License](#license "License")
 
 # Description
 The colectiva mathematical engine allows you to generate pseudo-probable number sequences for games of chance based on statistics and probability. The current version of the application focuses on the randomization of sequences for the Eurojackpot game.
