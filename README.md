@@ -3,10 +3,10 @@
 
 **Table of Contents**
 - [Description](#Description "Description")
-- [Work environment](#Work "Work environment")
+- [Work environment](#Work "Work")
 - [Project structure](#Project "Project")
-- [Available endpoints](#Available endpoints "Available endpoints")
-- [Available solutions](#Available solutions "Available solutions")
+- [Available endpoints](#endpoints "endpoints")
+- [Available solutions](#solutions "solutions")
 - [License](#License "License")
 
 # Description
