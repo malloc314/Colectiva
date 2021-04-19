@@ -1,38 +1,12 @@
-﻿#Colectiva API
+﻿**Table of Contents**
 
-
-**Table of Contents**
+[TOCM]
 
 [TOC]
 
-#Description
-The colectiva mathematical engine allows you to generate pseudo-probable number sequences for games of chance based on statistics and probability. The current version of the application focuses on the randomization of sequences for the Eurojackpot game.
-#Work environment
-The environment used to create the project
-                    
-Tool | Version
-------------- | -------------
-ASP.NET Core  | 5.0
-C# | 9.0
-MS SQL Server | 18
-#Project structure
-The backend application project created in the REST API standard with high responsiveness and security in mind has been divided into layers according to the principles of clean architecture:
-
-Layer | Description
-------------- | -------------
-Application  | Business logic
-Domain | Database entities
-Infrastructure | Frameworks
-WebAPI | Controllers
-#Available endpoints
-Currently implemented solutions and available endpoints.
-
-Download the entire history of eurojackpot draws
-Downloading pseudo-probable sequences
-User identification
-User authentication
-User authorization
-Session management
-#License
-xD
-
+#H1 header
+##H2 header
+###H3 header
+####H4 header
+#####H5 header
+######H6 header
