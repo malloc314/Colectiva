@@ -1,4 +1,4 @@
-﻿# Colectiva API
+﻿![](https://raw.githubusercontent.com/malloc314/Colectiva/7cf40579acf6e195de5f3ca3a82678b738973af2/Docs/Colectiva-logo-v1.svg)
 
 **Table of Contents**
 - [Description](#description "Description")
@@ -7,8 +7,6 @@
 - [Available endpoints](#available-endpoints "Available endpoints")
 - [Available solutions](#available-solutions "Available solutions")
 - [License](#license "License")
-
-![](https://raw.githubusercontent.com/malloc314/Colectiva/7cf40579acf6e195de5f3ca3a82678b738973af2/Docs/Colectiva-logo-v1.svg)
 
 # Description
 The colectiva mathematical engine allows you to generate pseudo-probable number sequences for games of chance based on statistics and probability. The current version of the application focuses on the randomization of sequences for the Eurojackpot game.
