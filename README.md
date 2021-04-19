@@ -3,9 +3,10 @@
 
 **Table of Contents**
 - [Description](#Description "Description")
-- [Work environment](#Work "Work environment")
-- [Project structure](#Project "Project structure")
-- [Available endpoints](#Available "Available endpoints")
+- [Work environment](#Work environment "Work environment")
+- [Project structure](#Project structure "Project structure")
+- [Available endpoints](#Available endpoints "Available endpoints")
+- [Available solutions](#Available solutions "Available solutions")
 - [License](#License "License")
 
 # Description
@@ -31,7 +32,7 @@ Infrastructure | Frameworks
 WebAPI | Controllers
 
 # Available endpoints
-Currently implemented solutions and available endpoints.
+Currently implemented and available endpoints.
 
 > Download the entire history of eurojackpot draws
 
@@ -48,6 +49,10 @@ Currently implemented solutions and available endpoints.
 > User authentication
 
 - [ ]  **`POST` api/**  
+
+
+
+# Available solutions
 
 # License
 
