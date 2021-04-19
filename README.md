@@ -4,7 +4,7 @@
 **Table of Contents**
 - [Description](#Description "Description")
 - [Work environment](#Work environment "Work environment")
-- [Project structure](#Project structure "Project structure")
+- [Project structure](#Project "Project")
 - [Available endpoints](#Available endpoints "Available endpoints")
 - [Available solutions](#Available solutions "Available solutions")
 - [License](#License "License")
