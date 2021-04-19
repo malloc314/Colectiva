@@ -3,9 +3,9 @@
 
 **Table of Contents**
 - [Description](#Description "Description")
-- [Work environment](#Work environment "Work environment")
-- [Project structure](#Project structure "Project structure")
-- [Available endpoints](#Available endpoints "Available endpoints")
+- [Work environment](#Work "Work environment")
+- [Project structure](#Project "Project structure")
+- [Available endpoints](#Available "Available endpoints")
 - [License](#License "License")
 
 # Description
@@ -43,18 +43,11 @@ Currently implemented solutions and available endpoints.
 
 > User identification
 
-- [ ]  **`GET` api/** 
+- [ ]  **`POST` api/** 
 
 > User authentication
 
-- [ ]  **`GET` api/**  
-
-> User authorization
-
-- [ ]  **`GET` api/**  
-
-
-
+- [ ]  **`POST` api/**  
 
 # License
 
