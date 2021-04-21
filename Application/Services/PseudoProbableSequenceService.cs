@@ -1,0 +1,114 @@
+﻿using Application.Dto;
+using Application.Interfaces;
+using AutoMapper;
+using Domain.Entities;
+using Domain.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Application.Services
+{
+    public class PseudoProbableSequenceService : IPseudoProbableSequenceService
+    {
+        private readonly IPseudoProbableSequenceRepository _repository;
+        private readonly IMapper _mapper;
+
+        public PseudoProbableSequenceService(IPseudoProbableSequenceRepository repository, IMapper mapper)
+        {
+            _repository = repository;
+            _mapper = mapper;
+        }
+
+        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences()
+        {
+            var sequences = _repository.GetAll().ToList();
+
+            
+            var rand = new Random();
+            //var pseudoProbableSequence = new PseudoProbableSequence();
+            var pseudoProbableSequences = new List<PseudoProbableSequence>();
+
+            List<byte> first = new List<byte>();
+            List<byte> second = new List<byte>();
+            List<byte> thrid = new List<byte>();
+            List<byte> fourth = new List<byte>();
+            List<byte> fifth = new List<byte>();
+            List<byte> sixth = new List<byte>();
+            List<byte> seventh = new List<byte>();
+            
+            byte firstDraw = 0;
+            byte secondDraw = 0;
+            byte thridDraw = 0;
+            byte fourthDraw = 0;
+            byte fifthDraw = 0;
+            byte sixthDraw = 0;
+            byte seventhDraw = 0;
+
+
+            foreach (var number in sequences)
+            {
+                first.Add(number.First);
+                second.Add(number.Second);
+                thrid.Add(number.Thrid);
+                fourth.Add(number.Fourth);
+                fifth.Add(number.Fifth);
+                sixth.Add(number.Sixth);
+                seventh.Add(number.Seventh);
+            }
+
+            // Temporary solution.
+            var i = 1;
+            while (i <= 3) 
+            {
+                // Generate 5 random bytes between 1 and 50.
+                firstDraw = first[rand.Next(1, 49)];
+                secondDraw = second[rand.Next(1, 49)];
+                if (firstDraw > secondDraw)
+                    while (firstDraw > secondDraw)
+                        secondDraw = second[rand.Next(1, 49)];
+
+                thridDraw = thrid[rand.Next(1, 49)];
+                if (secondDraw > thridDraw)
+                    while (secondDraw > thridDraw)
+                        thridDraw = thrid[rand.Next(1, 49)];
+
+                fourthDraw = fourth[rand.Next(1, 49)];
+                if (thridDraw > fourthDraw)
+                    while (thridDraw > fourthDraw)
+                        fourthDraw = fourth[rand.Next(1, 49)];
+
+                fifthDraw = fifth[rand.Next(1, 49)];
+                if (fourthDraw > fifthDraw)
+                    while (fourthDraw > fifthDraw)
+                        fifthDraw = fifth[rand.Next(1, 49)];
+
+                // Generate 2 random bytes between 1 and 10.
+                sixthDraw = sixth[rand.Next(1, 9)];
+                seventhDraw = seventh[rand.Next(1, 9)];
+                if (sixthDraw > seventhDraw)
+                    while (sixthDraw > seventhDraw)
+                        seventhDraw = seventh[rand.Next(1, 9)];
+
+                var pseudoProbableSequence = new PseudoProbableSequence()
+                {
+                    Sn = i,
+                    First = firstDraw,
+                    Second = secondDraw,
+                    Thrid = thridDraw,
+                    Fourth = fourthDraw,
+                    Fifth = fifthDraw,
+                    Sixth = sixthDraw,
+                    Seventh = seventhDraw
+                };
+
+                pseudoProbableSequences.Add(pseudoProbableSequence);
+                i++;
+            }
+
+            return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoProbableSequences);
+        }
+    }
+}

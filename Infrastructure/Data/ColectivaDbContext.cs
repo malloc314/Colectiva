@@ -15,5 +15,6 @@ namespace Infrastructure.Data
         }
 
         public DbSet<HistoricalSequence> HistoricalSequences { get; set; }
+        public DbSet<PseudoProbableSequence> PseudoProbableSequences { get; set; }
     }
 }

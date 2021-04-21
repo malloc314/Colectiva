@@ -17,6 +17,7 @@ namespace Application
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddScoped<IHistoricalSequenceRepository, HistoricalSequenceRepository>();
+            services.AddScoped<IPseudoProbableSequenceRepository, PseudoProbableSequenceRepository>();
 
             return services;
         }

@@ -16,6 +16,7 @@ namespace Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddScoped<IHistoricalSequenceService, HistoricalSequenceService>();
+            services.AddScoped<IPseudoProbableSequenceService, PseudoProbableSequenceService>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

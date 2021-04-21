@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/HistoricalSequence")]
     [ApiController]
     public class HistoricalSequenceController : ControllerBase
     {
@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
 
         [SwaggerOperation(Summary = "Gets draw by ordinal number")]
         [HttpGet("{sn}")]
-        public IActionResult Get(int sn)
+        public IActionResult Get([FromRoute] int sn)
         {
             var sequence = _historicalSequenceService.GetHistoricalSequenceById(sn);
             
