@@ -1,5 +1,6 @@
 ﻿using Application.Dto;
 using Application.Interfaces;
+using Application.Models;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
@@ -22,13 +23,12 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences()
+        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences(PseudoProbableSequenceQuantity quantity)
         {
             var sequences = _repository.GetAll().ToList();
 
-            
             var rand = new Random();
-            //var pseudoProbableSequence = new PseudoProbableSequence();
+
             var pseudoProbableSequences = new List<PseudoProbableSequence>();
 
             List<byte> first = new List<byte>();
@@ -60,8 +60,7 @@ namespace Application.Services
             }
 
             // Temporary solution.
-            var i = 1;
-            while (i <= 3) 
+            for (int i = 1; i <= quantity.Qty; i++)
             {
                 // Generate 5 random bytes between 1 and 50.
                 firstDraw = first[rand.Next(1, 49)];
@@ -105,7 +104,6 @@ namespace Application.Services
                 };
 
                 pseudoProbableSequences.Add(pseudoProbableSequence);
-                i++;
             }
 
             return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoProbableSequences);

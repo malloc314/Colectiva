@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -20,11 +21,15 @@ namespace WebAPI.Controllers
             _pseudoProbableSequenceService = pseudoProbableSequenceService;
         }
 
-        [SwaggerOperation(Summary = "Get pseudo-probable sequences")]
-        [HttpGet]
-        public IActionResult Get()
+        [SwaggerOperation(Summary = "Get pseudo-probable sequences from 1 to 16")]
+        [HttpGet("{qty}")]
+        public IActionResult Get([FromRoute] PseudoProbableSequenceQuantity quantity)
         {
-            var sequences = _pseudoProbableSequenceService.GetPseudoProbableSequences();
+            //var validator = new PseudoProbableSequenceQuantity();
+            //var result = validator.Validate(quantity);
+
+
+            var sequences = _pseudoProbableSequenceService.GetPseudoProbableSequences(quantity);
 
             return Ok(sequences);
         }

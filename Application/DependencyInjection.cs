@@ -1,6 +1,9 @@
 ﻿using Application.Interfaces;
 using Application.Mappings;
+using Application.Models;
 using Application.Services;
+using Application.Validators;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,6 +20,8 @@ namespace Application
         {
             services.AddScoped<IHistoricalSequenceService, HistoricalSequenceService>();
             services.AddScoped<IPseudoProbableSequenceService, PseudoProbableSequenceService>();
+
+            services.AddScoped<IValidator<PseudoProbableSequenceQuantity>, PseudoProbableSequenceValidator>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

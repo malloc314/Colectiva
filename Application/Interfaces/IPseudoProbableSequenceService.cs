@@ -1,4 +1,5 @@
 ﻿using Application.Dto;
+using Application.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Application.Interfaces
 {
     public interface IPseudoProbableSequenceService
     {
-        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences();
+        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences(PseudoProbableSequenceQuantity quantity);
     }
 }
