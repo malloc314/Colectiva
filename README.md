@@ -59,4 +59,6 @@ Currently implemented and available endpoints.
 
 # License
 
+<code style="border-radius: 2em; border-color: #2ea04366;color: #3fb950;border: 1px solid transparent;">GET</code>
+
 ****
