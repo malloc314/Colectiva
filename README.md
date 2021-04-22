@@ -7,7 +7,6 @@
 - [Work environment](#work-environment "Work environment")
 - [Project structure](#project-structure "Project structure")
 - [Available endpoints](#available-endpoints "Available endpoints")
-- [Available solutions](#available-solutions "Available solutions")
 
 # Description
 The colectiva mathematical engine allows you to generate **pseudo-probable** number sequences for games of chance based on **statistics** and **probability**. The current version of the application focuses on the draw of sequences for the Eurojackpot game.
@@ -53,6 +52,3 @@ Currently implemented and available endpoints.
 > User authentication
 
 - [ ]  **`POST` api/**  
-
-
-# Available solutions
