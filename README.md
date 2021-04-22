@@ -6,7 +6,6 @@
 - [Project structure](#project-structure "Project structure")
 - [Available endpoints](#available-endpoints "Available endpoints")
 - [Available solutions](#available-solutions "Available solutions")
-- [License](#license "License")
 
 # Description
 The colectiva mathematical engine allows you to generate **pseudo-probable** number sequences for games of chance based on **statistics** and **probability**. The current version of the application focuses on the draw of sequences for the Eurojackpot game.
@@ -41,9 +40,9 @@ Currently implemented and available endpoints.
 
 - [x]  **`GET` /api/HistoricalSequence/{sn}** 
 
-> Get pseudo-probable sequences
+> Get pseudo-probable sequences from 1 to 16
 
-- [ ]  **`GET` /api/PseudoProbableSequence** 
+- [x]  **`GET` /api/PseudoProbableSequence/{Qty}** 
 
 > User identification
 
@@ -56,9 +55,5 @@ Currently implemented and available endpoints.
 
 
 # Available solutions
-
-# License
-
-<code style="border-radius:2em; border-color:#2ea04366; color:#3fb950; border:1px solid transparent;">GET</code>
 
 ****
