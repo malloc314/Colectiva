@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
         }
 
         [SwaggerOperation(Summary = "Get pseudo-probable sequences from 1 to 16")]
-        [HttpGet("{qty}")]
+        [HttpGet("{Qty}")]
         public IActionResult Get([FromRoute] PseudoProbableSequenceQuantity quantity)
         {
             //var validator = new PseudoProbableSequenceQuantity();
