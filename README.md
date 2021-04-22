@@ -17,8 +17,8 @@ The environment used to create the project:
                     
 Tool | Version
 ------------- | :-------------:
-ASP.NET Core  | `5.0`
-C# | `9.0`
+C#  | `9.0`
+ASP.NET Core | `5.0`
 MS SQL Server | `18`
 
 # Project structure
