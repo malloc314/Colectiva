@@ -1,5 +1,7 @@
 ﻿![](https://raw.githubusercontent.com/malloc314/Colectiva/7cf40579acf6e195de5f3ca3a82678b738973af2/Docs/Colectiva-logo-v1.svg)
 
+****
+
 **Table of Contents**
 - [Description](#description "Description")
 - [Work environment](#work-environment "Work environment")
@@ -53,7 +55,4 @@ Currently implemented and available endpoints.
 - [ ]  **`POST` api/**  
 
 
-
 # Available solutions
-
-****
