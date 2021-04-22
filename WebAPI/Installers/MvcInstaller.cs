@@ -2,7 +2,9 @@
 using Application.Interfaces;
 using Application.Mappings;
 using Application.Services;
+using Application.Validators;
 using Domain.Interfaces;
+using FluentValidation.AspNetCore;
 using Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +22,11 @@ namespace WebAPI.Installers
         {
             services.AddApplication();
             services.AddInfrastructure();
-            services.AddControllers();
+            services.AddControllers()
+                .AddFluentValidation(options => 
+                {
+                    options.RegisterValidatorsFromAssemblyContaining<PseudoProbableSequenceValidator>();
+                });
         }
     }
 }

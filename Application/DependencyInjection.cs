@@ -21,7 +21,7 @@ namespace Application
             services.AddScoped<IHistoricalSequenceService, HistoricalSequenceService>();
             services.AddScoped<IPseudoProbableSequenceService, PseudoProbableSequenceService>();
 
-            services.AddScoped<IValidator<PseudoProbableSequenceQuantity>, PseudoProbableSequenceValidator>();
+            //services.AddScoped<IValidator<PseudoProbableSequenceQuantity>, PseudoProbableSequenceValidator>();
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

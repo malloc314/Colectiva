@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Models;
+using Application.Validators;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -7,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebAPI.Attributes;
+using WebAPI.Wrappers;
 
 namespace WebAPI.Controllers
 {
@@ -21,14 +24,11 @@ namespace WebAPI.Controllers
             _pseudoProbableSequenceService = pseudoProbableSequenceService;
         }
 
+        [ValidateFilter]
         [SwaggerOperation(Summary = "Get pseudo-probable sequences from 1 to 16")]
         [HttpGet("{Qty}")]
         public IActionResult Get([FromRoute] PseudoProbableSequenceQuantity quantity)
         {
-            //var validator = new PseudoProbableSequenceQuantity();
-            //var result = validator.Validate(quantity);
-
-
             var sequences = _pseudoProbableSequenceService.GetPseudoProbableSequences(quantity);
 
             return Ok(sequences);
