@@ -13,13 +13,21 @@ namespace Domain.Entities
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public int Sn { get; set; }
+        [Required]
         public byte First { get; set; }
+        [Required]
         public byte Second { get; set; }
+        [Required]
         public byte Thrid { get; set; }
+        [Required]
         public byte Fourth { get; set; }
+        [Required]
         public byte Fifth { get; set; }
+        [Required]
         public byte Sixth { get; set; }
+        [Required]
         public byte Seventh { get; set; }
     }
 }

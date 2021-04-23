@@ -10,5 +10,6 @@ namespace Domain.Interfaces
     public interface IPseudoProbableSequenceRepository
     {
         public IEnumerable<HistoricalSequence> GetAll();
+        public PseudoProbableSequence PostAll(PseudoProbableSequence sequence);
     }
 }

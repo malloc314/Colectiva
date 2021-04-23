@@ -11,6 +11,7 @@ namespace Application.Dto
 {
     public class PseudoProbableSequenceDto : IMap
     {
+        public int Id { get; set; }
         public int Sn { get; set; }
         public byte First { get; set; }
         public byte Second { get; set; }
@@ -23,6 +24,7 @@ namespace Application.Dto
         public void Mapping(Profile profile)
         {
             profile.CreateMap<PseudoProbableSequence, PseudoProbableSequenceDto>();
+            profile.CreateMap<PseudoProbableSequenceDto, PseudoProbableSequence>();
         }
     }
 }

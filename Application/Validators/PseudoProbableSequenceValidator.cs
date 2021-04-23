@@ -15,7 +15,7 @@ namespace Application.Validators
             #region Quantity
             
             RuleFor(r => r.Qty).LessThanOrEqualTo(16).WithMessage("The number of sequences generated must not exceed 16");
-            
+
             #endregion
         }
     }

@@ -22,5 +22,14 @@ namespace Infrastructure.Repositories
             var historicalSequences = _context.HistoricalSequences;
             return historicalSequences;
         }
+
+        public PseudoProbableSequence PostAll(PseudoProbableSequence sequence)
+        {
+            var pseudoProbableSequence = _context.PseudoProbableSequences.Add(sequence);
+            
+            _context.SaveChanges();
+
+            return pseudoProbableSequence.Entity;
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.Dto;
+using Application.Interfaces;
 using Application.Models;
 using Application.Validators;
 using Microsoft.AspNetCore.Http;
@@ -32,6 +33,16 @@ namespace WebAPI.Controllers
             var sequences = _pseudoProbableSequenceService.GetPseudoProbableSequences(quantity);
 
             return Ok(sequences);
+        }
+
+        [ValidateFilter]
+        [SwaggerOperation(Summary = "Add pseudo-probable sequence")]
+        [HttpPost]
+        public IActionResult Post([FromQuery] PseudoProbableSequenceDto dto)
+        {
+            var sequences = _pseudoProbableSequenceService.PostPseudoProbableSequence(dto);
+
+            return Created($"api/PseudoProbableSequence/{sequences.Id}", sequences);
         }
     }
 }

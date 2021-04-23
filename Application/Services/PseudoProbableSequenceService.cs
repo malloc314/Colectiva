@@ -108,5 +108,14 @@ namespace Application.Services
 
             return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoProbableSequences);
         }
+
+        public PseudoProbableSequenceDto PostPseudoProbableSequence(PseudoProbableSequenceDto dto)
+        {
+            var sequence = _mapper.Map<PseudoProbableSequence>(dto);
+
+            _repository.PostAll(sequence);
+
+            return _mapper.Map<PseudoProbableSequenceDto>(sequence);
+        }
     }
 }
