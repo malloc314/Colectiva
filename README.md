@@ -45,6 +45,10 @@ Currently available endpoints.
 
 - [x]  **`GET` /api/PseudoProbableSequence/{Qty}** 
 
+> Add pseudo-probable sequences to database [FromQuery]
+
+- [x]  **`POST` /api/PseudoProbableSequence** 
+
 > User identification
 
 - [ ]  **`POST` api/** 
