@@ -11,7 +11,7 @@ namespace Application.Dto
 {
     public class HistoricalSequenceDto : IMap
     {
-        public int  Sn { get; set; }
+        public int Id { get; set; }
         public byte First { get; set; }
         public byte Second { get; set; }
         public byte Thrid { get; set; }

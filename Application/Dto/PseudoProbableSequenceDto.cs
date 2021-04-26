@@ -12,7 +12,6 @@ namespace Application.Dto
     public class PseudoProbableSequenceDto : IMap
     {
         public int Id { get; set; }
-        public int Sn { get; set; }
         public byte First { get; set; }
         public byte Second { get; set; }
         public byte Thrid { get; set; }
