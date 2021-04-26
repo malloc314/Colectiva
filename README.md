@@ -1,4 +1,4 @@
-﻿![](https://raw.githubusercontent.com/malloc314/Colectiva/ea10a865b3006954e1b0b0c977047024f6ab7d39/Docs/Colectiva-logo-v3.svg)
+﻿![](https://raw.githubusercontent.com/malloc314/Colectiva/56233d5fa8c1497a04aa937fd4e64e13659ba75b/Docs/Colectiva-logo-v4.svg)
 
 ****
 
