@@ -31,9 +31,9 @@ namespace Infrastructure.Data
                     }
                 }
 
-                if (CheckNewHistoricalSequenceInJsonFile())
+                if (CheckNewHistoricalSequence())
                 {
-                    var getNewHistoricalSequenceFromJsonFile = GetNewHistoricalSequenceFromJsonFile();
+                    var getNewHistoricalSequenceFromJsonFile = GetNewHistoricalSequence();
                     foreach (var sequence in getNewHistoricalSequenceFromJsonFile)
                     {
                         _context.HistoricalSequences.Add(sequence);
@@ -62,7 +62,7 @@ namespace Infrastructure.Data
             return historicalSequences.OrderBy(h => h.Sn).ToList();
         }
 
-        public bool CheckNewHistoricalSequenceInJsonFile()
+        public bool CheckNewHistoricalSequence()
         {
             var jsonFile = GetJsonFile();
 
@@ -76,7 +76,7 @@ namespace Infrastructure.Data
             return true;
         }
 
-        public IEnumerable<HistoricalSequence> GetNewHistoricalSequenceFromJsonFile()
+        public IEnumerable<HistoricalSequence> GetNewHistoricalSequence()
         {
             var jsonFile = GetJsonFile();
             var historicalSequences = _context.HistoricalSequences;
