@@ -79,9 +79,6 @@ namespace Infrastructure.Migrations
                     b.Property<byte>("Sixth")
                         .HasColumnType("tinyint");
 
-                    b.Property<int>("Sn")
-                        .HasColumnType("int");
-
                     b.Property<byte>("Thrid")
                         .HasColumnType("tinyint");
 

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ColectivaDbContext))]
-    [Migration("20210416160720_Init")]
+    [Migration("20210426103335_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,6 +54,39 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HistoricalSequences");
+                });
+
+            modelBuilder.Entity("Domain.Entities.PseudoProbableSequence", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<byte>("Fifth")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("First")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Fourth")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Second")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Seventh")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Sixth")
+                        .HasColumnType("tinyint");
+
+                    b.Property<byte>("Thrid")
+                        .HasColumnType("tinyint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PseudoProbableSequences");
                 });
 #pragma warning restore 612, 618
         }
