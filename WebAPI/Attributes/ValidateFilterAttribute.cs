@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +18,13 @@ namespace WebAPI.Attributes
 
             if (!context.ModelState.IsValid)
             {
-                var entry = context.ModelState.Values.FirstOrDefault();
+                var errors = context.ModelState.Values.SelectMany(e => e.Errors).Select(e => e.ErrorMessage);
 
-                context.Result = new BadRequestObjectResult(new Response<bool> 
+                context.Result = new BadRequestObjectResult(new Response<bool>
                 {
                     Succeeded = false,
                     Message = "Something went wrong",
-                    Errors = entry.Errors.Select(e => e.ErrorMessage)
+                    Errors = errors
                 });
             }
         }
