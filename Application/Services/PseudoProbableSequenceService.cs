@@ -93,7 +93,6 @@ namespace Application.Services
 
                 var pseudoProbableSequence = new PseudoProbableSequence()
                 {
-                    Sn = i,
                     First = firstDraw,
                     Second = secondDraw,
                     Thrid = thridDraw,
