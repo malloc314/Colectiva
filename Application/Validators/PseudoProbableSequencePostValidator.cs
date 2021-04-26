@@ -12,18 +12,20 @@ namespace Application.Validators
     {
         public PseudoProbableSequencePostValidator()
         {
-            #region 1..50
-            RuleFor(r => (int)r.First).ExclusiveBetween(0, 51).WithMessage("The first number of sequence must exclusive between 1, 50");
-            RuleFor(r => (int)r.Second).ExclusiveBetween(0, 51).WithMessage("The second number of sequence must exclusive between 1, 50");
-            RuleFor(r => (int)r.Thrid).ExclusiveBetween(0, 51).WithMessage("The thrid number of sequence must exclusive between 1, 50");
-            RuleFor(r => (int)r.Fourth).ExclusiveBetween(0, 51).WithMessage("The fourth number of sequence must exclusive between 1, 50");
-            RuleFor(r => (int)r.Fifth).ExclusiveBetween(0, 51).WithMessage("The fifth number of sequence must exclusive between 1, 50");
+            #region First
+            RuleFor(r => (int)r.First).ExclusiveBetween(1, 50).WithMessage("The first number of sequence must exclusive between 1, 50");
             #endregion
 
-            #region 1..10
-            RuleFor(r => (int)r.Sixth).ExclusiveBetween(0, 11).WithMessage("The sixth number of sequence must exclusive between 1, 10");
-            RuleFor(r => (int)r.Seventh).ExclusiveBetween(0, 11).WithMessage("The seventh number of sequences must exclusive between 1, 10");
+            #region Second
+            RuleFor(r => (int)r.Second).ExclusiveBetween(1, 50).WithMessage("The second number of sequence must exclusive between 1, 50");
             #endregion
+
+            RuleFor(r => (int)r.Thrid).ExclusiveBetween(1, 50).WithMessage("The thrid number of sequence must exclusive between 1, 50");
+            RuleFor(r => (int)r.Fourth).ExclusiveBetween(1, 50).WithMessage("The fourth number of sequence must exclusive between 1, 50");
+            RuleFor(r => (int)r.Fifth).ExclusiveBetween(1, 50).WithMessage("The fifth number of sequence must exclusive between 1, 50");
+            RuleFor(r => (int)r.Sixth).ExclusiveBetween(1, 10).WithMessage("The sixth number of sequence must exclusive between 1, 10");
+            RuleFor(r => (int)r.Seventh).ExclusiveBetween(1, 10).WithMessage("The seventh number of sequences must exclusive between 1, 10");
+
         }
     }
 }
