@@ -14,8 +14,6 @@ namespace Domain.Entities
         [Key]
         public int Id { get; set; }
         [Required]
-        public int Sn { get; set; }
-        [Required]
         public byte First { get; set; }
         [Required]
         public byte Second { get; set; }
