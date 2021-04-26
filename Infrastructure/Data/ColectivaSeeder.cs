@@ -23,28 +23,67 @@ namespace Infrastructure.Data
             {
                 if (!_context.HistoricalSequences.Any())
                 {
-                    var historicalSequences = GetHistoricalSequences();
-                    foreach (var entity in historicalSequences)
+                    var orderHistoricalSequences = OrderHistoricalSequences();
+                    foreach (var sequence in orderHistoricalSequences)
                     {
-                        _context.HistoricalSequences.Add(entity);
+                        _context.HistoricalSequences.Add(sequence);
+                        _context.SaveChanges();
+                    }
+                }
+
+                if (CheckNewHistoricalSequenceInJsonFile())
+                {
+                    var getNewHistoricalSequenceFromJsonFile = GetNewHistoricalSequenceFromJsonFile();
+                    foreach (var sequence in getNewHistoricalSequenceFromJsonFile)
+                    {
+                        _context.HistoricalSequences.Add(sequence);
                         _context.SaveChanges();
                     }
                 }
             }
         }
-
-        public IEnumerable<HistoricalSequence> GetHistoricalSequences()
+        public List<HistoricalSequence> GetJsonFile()
         {
             var rootPath = @"C:\Users\mmast\OneDrive\BOX\projects\programming\colectiva\Colectiva\Infrastructure\Data";
             var fileName = "HistoricalSequences.json";
             var filePath = $"{rootPath}\\{fileName}";
-            List<HistoricalSequence> orderedSequence = new List<HistoricalSequence>();
 
             var jsonString = File.ReadAllText(filePath);
 
-            var historicalSequences = JsonSerializer.Deserialize<IEnumerable<HistoricalSequence>>(jsonString).ToList();
+            var historicalSequencesJson = JsonSerializer.Deserialize<IEnumerable<HistoricalSequence>>(jsonString).ToList();
+
+            return historicalSequencesJson;
+        }
+
+        public IEnumerable<HistoricalSequence> OrderHistoricalSequences()
+        {
+            var historicalSequences = GetJsonFile();
 
             return historicalSequences.OrderBy(h => h.Sn).ToList();
+        }
+
+        public bool CheckNewHistoricalSequenceInJsonFile()
+        {
+            var jsonFile = GetJsonFile();
+
+            var historicalSequencesDb = _context.HistoricalSequences;
+
+            if (historicalSequencesDb.Count() == jsonFile.Count())
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public IEnumerable<HistoricalSequence> GetNewHistoricalSequenceFromJsonFile()
+        {
+            var jsonFile = GetJsonFile();
+            var historicalSequences = _context.HistoricalSequences;
+
+            var result = jsonFile.Count() - historicalSequences.Count();
+
+            return jsonFile.Take(result).OrderBy(h => h.Sn).ToList();
         }
     }
 }
