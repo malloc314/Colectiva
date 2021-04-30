@@ -1,4 +1,6 @@
 ﻿using Domain.Entities;
+using Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class ColectivaDbContext : DbContext
+    public class ColectivaDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ColectivaDbContext(DbContextOptions options) : base(options)
+        public ColectivaDbContext(DbContextOptions<ColectivaDbContext> options) : base(options)
         {
         }
 
