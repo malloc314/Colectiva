@@ -41,9 +41,13 @@ Currently available endpoints.
 
 - [x]  **`GET` /api/HistoricalSequence/{sn}** 
 
-> Get pseudo-probable sequences from 1 to 16
+> Draw pseudo-probable sequences from 1 to 16
 
-- [x]  **`GET` /api/PseudoProbableSequence/{Qty}** 
+- [x]  **`GET` /api/PseudoProbableSequence/{Qty}**
+
+> Get pseudo-probable sequences
+
+- [x]  **`GET` /api/PseudoProbableSequence/**
 
 > Add pseudo-probable sequences to database [FromQuery]
 
@@ -51,8 +55,8 @@ Currently available endpoints.
 
 > User identification
 
-- [ ]  **`POST` api/** 
+- [x]  **`POST` api/Identity/Register** 
 
 > User authentication
 
-- [ ]  **`POST` api/**  
+- [x]  **`POST` api/Identity/Login**  
