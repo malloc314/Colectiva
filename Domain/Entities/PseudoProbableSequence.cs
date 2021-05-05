@@ -27,5 +27,8 @@ namespace Domain.Entities
         public byte Sixth { get; set; }
         [Required]
         public byte Seventh { get; set; }
+        [Required]
+        [MaxLength(450)]
+        public string UserId { get; set; }
     }
 }
