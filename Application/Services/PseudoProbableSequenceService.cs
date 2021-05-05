@@ -23,7 +23,7 @@ namespace Application.Services
             _mapper = mapper;
         }
 
-        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences(PseudoProbableSequenceQuantity quantity)
+        public IEnumerable<PseudoProbableSequenceDto> DrawPseudoProbableSequences(PseudoProbableSequenceQuantity quantity)
         {
             var sequences = _repository.GetAll().ToList();
 
@@ -108,13 +108,21 @@ namespace Application.Services
             return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoProbableSequences);
         }
 
-        public PseudoProbableSequenceDto PostPseudoProbableSequence(PseudoProbableSequenceDto dto)
+        public PseudoProbableSequenceDto PostPseudoProbableSequence(PseudoProbableSequenceDto dto, string userId)
         {
             var sequence = _mapper.Map<PseudoProbableSequence>(dto);
+            
+            sequence.UserId = userId;
 
             _repository.PostAll(sequence);
 
             return _mapper.Map<PseudoProbableSequenceDto>(sequence);
+        }
+
+        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences()
+        {
+            var pseudoSequences = _repository.GetAllPseudo();
+            return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoSequences);
         }
     }
 }
