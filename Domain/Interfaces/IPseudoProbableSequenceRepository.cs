@@ -11,5 +11,6 @@ namespace Domain.Interfaces
     {
         public IEnumerable<HistoricalSequence> GetAll();
         public PseudoProbableSequence PostAll(PseudoProbableSequence sequence);
+        public IEnumerable<PseudoProbableSequence> GetAllPseudo();
     }
 }
