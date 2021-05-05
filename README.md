@@ -47,9 +47,9 @@ Currently available endpoints.
 
 > Get pseudo-probable sequences
 
-- [x]  **`GET` /api/PseudoProbableSequence/**
+- [x]  **`GET` /api/PseudoProbableSequence**
 
-> Add pseudo-probable sequences to database [FromQuery]
+> Add pseudo-probable sequences to database
 
 - [x]  **`POST` /api/PseudoProbableSequence** 
 
