@@ -21,12 +21,16 @@ namespace WebAPI.Installers
         public void InstallServices(IServiceCollection services, IConfiguration Configuration)
         {
             services.AddApplication();
+            
             services.AddInfrastructure();
+            
             services.AddControllers()
                 .AddFluentValidation(options => 
                 {
                     options.RegisterValidatorsFromAssemblyContaining<PseudoProbableSequenceValidator>();
                 });
+
+            services.AddAuthentication();
         }
     }
 }
