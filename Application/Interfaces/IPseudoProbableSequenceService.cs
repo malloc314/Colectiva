@@ -10,7 +10,8 @@ namespace Application.Interfaces
 {
     public interface IPseudoProbableSequenceService
     {
-        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences(PseudoProbableSequenceQuantity quantity);
-        public PseudoProbableSequenceDto PostPseudoProbableSequence(PseudoProbableSequenceDto dto);
+        public IEnumerable<PseudoProbableSequenceDto> DrawPseudoProbableSequences(PseudoProbableSequenceQuantity quantity);
+        public PseudoProbableSequenceDto PostPseudoProbableSequence(PseudoProbableSequenceDto dto, string userId);
+        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences();
     }
 }
