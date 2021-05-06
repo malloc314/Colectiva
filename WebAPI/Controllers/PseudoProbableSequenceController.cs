@@ -53,7 +53,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var pseudoSequencesDto = _pseudoProbableSequenceService.GetPseudoProbableSequences();
+            var pseudoSequencesDto = _pseudoProbableSequenceService.GetPseudoProbableSequences(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             return Ok(pseudoSequencesDto);
         }

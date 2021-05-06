@@ -32,9 +32,9 @@ namespace Infrastructure.Repositories
             return pseudoProbableSequence.Entity;
         }
 
-        public IEnumerable<PseudoProbableSequence> GetAllPseudo()
+        public IEnumerable<PseudoProbableSequence> GetAllPseudo(string userId)
         {
-            var pseudoSequences = _context.PseudoProbableSequences;
+            var pseudoSequences = _context.PseudoProbableSequences.Where(ps => ps.UserId == userId);
             return pseudoSequences;
         }
     }
