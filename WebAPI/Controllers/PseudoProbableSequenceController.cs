@@ -57,5 +57,35 @@ namespace WebAPI.Controllers
 
             return Ok(pseudoSequencesDto);
         }
+        //[ValidateFilter]
+        [SwaggerOperation(Summary = "Get pseudo-probable sequences by id")]
+        [HttpGet("id/{pseudoId}")]
+        public IActionResult GetById([FromRoute] int pseudoId)
+        {
+            var userOwnsPseudo = _pseudoProbableSequenceService.UserOwnsPseudo(pseudoId, User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            if (!userOwnsPseudo)
+            {
+                return BadRequest(new Response<bool>() 
+                { 
+                    Succeeded = false,
+                    Message = "You don't own this pseudo-probable sequence"
+                });
+            }
+
+            var pseudoSequencesDto = _pseudoProbableSequenceService.GetPseudoProbableSequenceById(pseudoId);
+
+            return Ok(pseudoSequencesDto);
+        }
+
+        ////[ValidateFilter]
+        //[SwaggerOperation(Summary = "Delete pseudo-probable sequence by id")]
+        //[HttpDelete]
+        //public IActionResult Delete([FromRoute] int id)
+        //{
+        //    var pseudoSequence = _pseudoProbableSequenceService.DeletePseudoProbableSequence(id);
+
+        //    return Ok(pseudoSequencesDto);
+        //}
     }
 }
