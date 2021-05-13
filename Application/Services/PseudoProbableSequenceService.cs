@@ -124,5 +124,33 @@ namespace Application.Services
             var pseudoSequences = _repository.GetAllPseudo(userId);
             return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoSequences);
         }
+
+        public PseudoProbableSequenceDto GetPseudoProbableSequenceById(int id)
+        {
+            var pseudoSequence = _repository.GetPseudoById(id);
+            return _mapper.Map<PseudoProbableSequenceDto>(pseudoSequence);
+        }
+
+        public bool UserOwnsPseudo(int pseudoId, string userId)
+        {
+            var pseudoSequence = _repository.GetPseudoById(pseudoId);
+
+            if (pseudoSequence is null)
+            {
+                return false;
+            }
+
+            if (pseudoSequence.UserId != userId)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        //public bool DeletePseudoProbableSequence(int id)
+        //{
+        //    _repository.DeletePseudo(id);
+        //}
     }
 }
