@@ -37,5 +37,20 @@ namespace Infrastructure.Repositories
             var pseudoSequences = _context.PseudoProbableSequences.Where(ps => ps.UserId == userId);
             return pseudoSequences;
         }
+
+        public PseudoProbableSequence GetPseudoById(int pseudoId)
+        {
+            var pseudoSequence = _context.PseudoProbableSequences.FirstOrDefault(ps => ps.Id == pseudoId);
+            return pseudoSequence;
+        }
+
+        //public void DeletePseudo(int id)
+        //{
+        //    var pseudoSequence = _context.PseudoProbableSequences.SingleOrDefault(ps => ps.Id == id);
+
+        //    _context.PseudoProbableSequences.Remove(pseudoSequence);
+
+        //    _context.SaveChanges();
+        //}
     }
 }
