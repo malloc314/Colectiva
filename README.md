@@ -35,23 +35,35 @@ Currently available endpoints.
 
 > Get the entire history of eurojackpot draws
 
-- [x] **`GET` /api/HistoricalSequence** 
+- [x] **`GET` /api/HistoricalSequence/all** 
 
 > Get historical sequence by serial number
 
-- [x]  **`GET` /api/HistoricalSequence/{sn}** 
+- [x]  **`GET` /api/HistoricalSequence/sn/{sn}** 
+
+****
 
 > Draw pseudo-probable sequences from 1 to 16
 
-- [x]  **`GET` /api/PseudoProbableSequence/{Qty}**
+- [x]  **`GET` /api/PseudoProbableSequence/qty/{Qty}**
 
-> Get pseudo-probable sequences
+> Get the entire pseudo-probable sequences
 
-- [x]  **`GET` /api/PseudoProbableSequence**
+- [x]  **`GET` /api/PseudoProbableSequence/all**
 
 > Add pseudo-probable sequences to database
 
-- [x]  **`POST` /api/PseudoProbableSequence** 
+- [x]  **`POST` /api/PseudoProbableSequence/add** 
+
+> Get pseudo-probable sequences to database
+
+- [x]  **`GET` /api/PseudoProbableSequence/id/{id}** 
+
+> Delete pseudo-probable sequence by id
+
+- [x]  **`DELETE` /api/PseudoProbableSequence/id/{id}** 
+
+****
 
 > User identification
 
