@@ -51,13 +51,13 @@ Currently available endpoints.
 
 - [x]  **`GET` /api/PseudoProbableSequence/all**
 
-> Add pseudo-probable sequences to database
-
-- [x]  **`POST` /api/PseudoProbableSequence/add** 
-
 > Get pseudo-probable sequences to database
 
 - [x]  **`GET` /api/PseudoProbableSequence/id/{id}** 
+
+> Add pseudo-probable sequences to database
+
+- [x]  **`POST` /api/PseudoProbableSequence/add** 
 
 > Delete pseudo-probable sequence by id
 
