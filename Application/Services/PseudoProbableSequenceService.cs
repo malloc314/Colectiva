@@ -125,13 +125,13 @@ namespace Application.Services
             return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoSequences);
         }
 
-        public PseudoProbableSequenceDto GetPseudoProbableSequenceById(int id)
+        public PseudoProbableSequenceDto GetPseudoProbableSequenceById(int pseudoId)
         {
-            var pseudoSequence = _repository.GetPseudoById(id);
+            var pseudoSequence = _repository.GetPseudoById(pseudoId);
             return _mapper.Map<PseudoProbableSequenceDto>(pseudoSequence);
         }
 
-        public bool UserOwnsPseudo(int pseudoId, string userId)
+        public bool UserOwnsPseudoProbableSequence(int pseudoId, string userId)
         {
             var pseudoSequence = _repository.GetPseudoById(pseudoId);
 
@@ -148,9 +148,10 @@ namespace Application.Services
             return true;
         }
 
-        //public bool DeletePseudoProbableSequence(int id)
-        //{
-        //    _repository.DeletePseudo(id);
-        //}
+        public void DeletePseudoProbableSequence(int pseudoId)
+        {
+            var pseudoSequence = _repository.GetPseudoById(pseudoId);
+            _repository.DeletePseudo(pseudoSequence);
+        }
     }
 }

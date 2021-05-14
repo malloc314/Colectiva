@@ -13,6 +13,6 @@ namespace Domain.Interfaces
         public PseudoProbableSequence PostAll(PseudoProbableSequence sequence);
         public IEnumerable<PseudoProbableSequence> GetAllPseudo(string userId);
         public PseudoProbableSequence GetPseudoById(int pseudoId);
-        //public void DeletePseudo(int id);
+        public void DeletePseudo(PseudoProbableSequence sequence);
     }
 }

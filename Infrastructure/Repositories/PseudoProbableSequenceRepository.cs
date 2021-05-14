@@ -44,13 +44,11 @@ namespace Infrastructure.Repositories
             return pseudoSequence;
         }
 
-        //public void DeletePseudo(int id)
-        //{
-        //    var pseudoSequence = _context.PseudoProbableSequences.SingleOrDefault(ps => ps.Id == id);
+        public void DeletePseudo(PseudoProbableSequence sequence)
+        {
+            _context.PseudoProbableSequences.Remove(sequence);
 
-        //    _context.PseudoProbableSequences.Remove(pseudoSequence);
-
-        //    _context.SaveChanges();
-        //}
+            _context.SaveChanges();
+        }
     }
 }

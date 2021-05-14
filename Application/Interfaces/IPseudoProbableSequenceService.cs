@@ -14,8 +14,7 @@ namespace Application.Interfaces
         public PseudoProbableSequenceDto PostPseudoProbableSequence(PseudoProbableSequenceDto dto, string userId);
         public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences(string userId);
         public PseudoProbableSequenceDto GetPseudoProbableSequenceById(int id);
-        public bool UserOwnsPseudo(int pseudoId, string userId);
-        
-        //public void DeletePseudoProbableSequence(int id);
+        public bool UserOwnsPseudoProbableSequence(int pseudoId, string userId);        
+        public void DeletePseudoProbableSequence(int pseudoId);
     }
 }

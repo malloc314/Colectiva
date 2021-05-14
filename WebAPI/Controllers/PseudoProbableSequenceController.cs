@@ -62,7 +62,7 @@ namespace WebAPI.Controllers
         [HttpGet("id/{pseudoId}")]
         public IActionResult GetById([FromRoute] int pseudoId)
         {
-            var userOwnsPseudo = _pseudoProbableSequenceService.UserOwnsPseudo(pseudoId, User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var userOwnsPseudo = _pseudoProbableSequenceService.UserOwnsPseudoProbableSequence(pseudoId, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (!userOwnsPseudo)
             {
@@ -78,14 +78,25 @@ namespace WebAPI.Controllers
             return Ok(pseudoSequencesDto);
         }
 
-        ////[ValidateFilter]
-        //[SwaggerOperation(Summary = "Delete pseudo-probable sequence by id")]
-        //[HttpDelete]
-        //public IActionResult Delete([FromRoute] int id)
-        //{
-        //    var pseudoSequence = _pseudoProbableSequenceService.DeletePseudoProbableSequence(id);
+        //[ValidateFilter]
+        [SwaggerOperation(Summary = "Delete pseudo-probable sequence by id")]
+        [HttpDelete("delete/{pseudoId}")]
+        public IActionResult Delete([FromRoute] int pseudoId)
+        {
+            var userOwnsPseudo = _pseudoProbableSequenceService.UserOwnsPseudoProbableSequence(pseudoId, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-        //    return Ok(pseudoSequencesDto);
-        //}
+            if (!userOwnsPseudo)
+            {
+                return BadRequest(new Response<bool>()
+                {
+                    Succeeded = false,
+                    Message = "You don't own this pseudo-probable sequence"
+                });
+            }
+
+            _pseudoProbableSequenceService.DeletePseudoProbableSequence(pseudoId);
+
+            return NoContent();
+        }
     }
 }
