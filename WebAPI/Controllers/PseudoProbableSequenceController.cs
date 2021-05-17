@@ -2,6 +2,7 @@
 using Application.Interfaces;
 using Application.Models;
 using Application.Validators;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,8 +29,9 @@ namespace WebAPI.Controllers
             _pseudoProbableSequenceService = pseudoProbableSequenceService;
         }
 
-        [ValidateFilter]
         [SwaggerOperation(Summary = "Draw pseudo-probable sequences from 1 to 16")]
+        [ValidateFilter]
+        [Authorize(Roles = UserRoles.User)]
         [HttpGet("{Qty}")]
         public IActionResult Get([FromRoute] PseudoProbableSequenceQuantity quantity)
         {
@@ -38,8 +40,9 @@ namespace WebAPI.Controllers
             return Ok(sequences);
         }
 
-        [ValidateFilter]
         [SwaggerOperation(Summary = "Add pseudo-probable sequence")]
+        [ValidateFilter]
+        [Authorize(Roles = UserRoles.User)]
         [HttpPost]
         public IActionResult Post(PseudoProbableSequenceDto dto)
         {
@@ -48,17 +51,22 @@ namespace WebAPI.Controllers
             return Created($"api/PseudoProbableSequence/{sequences.Id}", sequences);
         }
 
-        //[ValidateFilter]
         [SwaggerOperation(Summary = "Get pseudo-probable sequences")]
+        //[ValidateFilter]
+        [Authorize(Roles = UserRoles.UserOrAdmin)]
         [HttpGet]
         public IActionResult Get()
         {
-            var pseudoSequencesDto = _pseudoProbableSequenceService.GetPseudoProbableSequences(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var isAdmin = User.FindFirstValue(ClaimTypes.Role).Contains(UserRoles.Admin);
+
+            var pseudoSequencesDto = _pseudoProbableSequenceService.GetPseudoProbableSequences(User.FindFirstValue(ClaimTypes.NameIdentifier), isAdmin);
 
             return Ok(pseudoSequencesDto);
         }
-        //[ValidateFilter]
+        
         [SwaggerOperation(Summary = "Get pseudo-probable sequences by id")]
+        //[ValidateFilter]
+        [Authorize(Roles = UserRoles.User)]
         [HttpGet("id/{pseudoId}")]
         public IActionResult GetById([FromRoute] int pseudoId)
         {
@@ -78,14 +86,16 @@ namespace WebAPI.Controllers
             return Ok(pseudoSequencesDto);
         }
 
-        //[ValidateFilter]
         [SwaggerOperation(Summary = "Delete pseudo-probable sequence by id")]
+        //[ValidateFilter]
+        [Authorize(Roles = UserRoles.UserOrAdmin)]
         [HttpDelete("delete/{pseudoId}")]
         public IActionResult Delete([FromRoute] int pseudoId)
         {
             var userOwnsPseudo = _pseudoProbableSequenceService.UserOwnsPseudoProbableSequence(pseudoId, User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var isAdmin = User.FindFirstValue(ClaimTypes.Role).Contains(UserRoles.Admin);
 
-            if (!userOwnsPseudo)
+            if (!isAdmin && !userOwnsPseudo)
             {
                 return BadRequest(new Response<bool>()
                 {

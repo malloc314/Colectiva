@@ -32,10 +32,18 @@ namespace Infrastructure.Repositories
             return pseudoProbableSequence.Entity;
         }
 
-        public IEnumerable<PseudoProbableSequence> GetAllPseudo(string userId)
+        public IEnumerable<PseudoProbableSequence> GetAllPseudo(string userId, bool isAdmin)
         {
-            var pseudoSequences = _context.PseudoProbableSequences.Where(ps => ps.UserId == userId);
-            return pseudoSequences;
+            if (isAdmin)
+            {
+                var pseudoSequencesAdmin = _context.PseudoProbableSequences;
+
+                return pseudoSequencesAdmin;
+            }
+
+            var pseudoSequencesUser = _context.PseudoProbableSequences.Where(ps => ps.UserId == userId);
+
+            return pseudoSequencesUser;
         }
 
         public PseudoProbableSequence GetPseudoById(int pseudoId)

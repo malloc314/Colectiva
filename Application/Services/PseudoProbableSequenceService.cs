@@ -119,9 +119,9 @@ namespace Application.Services
             return _mapper.Map<PseudoProbableSequenceDto>(sequence);
         }
 
-        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences(string userId)
+        public IEnumerable<PseudoProbableSequenceDto> GetPseudoProbableSequences(string userId, bool isAdmin)
         {
-            var pseudoSequences = _repository.GetAllPseudo(userId);
+            var pseudoSequences = _repository.GetAllPseudo(userId, isAdmin);
             return _mapper.Map<IEnumerable<PseudoProbableSequenceDto>>(pseudoSequences);
         }
 
