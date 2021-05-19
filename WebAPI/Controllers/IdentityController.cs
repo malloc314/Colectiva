@@ -12,6 +12,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using WebAPI.Models;
+using WebAPI.SwaggerExamples.Responses;
 using WebAPI.Wrappers;
 
 namespace WebAPI.Controllers
@@ -31,6 +32,13 @@ namespace WebAPI.Controllers
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Register the user account in the Colectiva system
+        /// </summary>
+        /// <response code="200">User creation successfully</response>
+        /// <response code="500">User already exists</response>
+        [ProducesResponseType(typeof(RegisterResponseStatus200), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(RegisterResponseStatus500), StatusCodes.Status500InternalServerError)]
         [HttpPost]
         [Route("Register")]
         public async Task<IActionResult> RegisterAsync(RegisterModel register)
@@ -41,7 +49,7 @@ namespace WebAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response
                 {
                     Succeeded = false,
-                    Message = "User already exists!"
+                    Message = "User already exists"
                 });
             }
 
@@ -58,7 +66,7 @@ namespace WebAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response<bool>
                 {
                     Succeeded = false,
-                    Message = "User creation failed! Please check user details and try agian.",
+                    Message = "User creation failed! Please check user details and try agian",
                     Errors = result.Errors.Select(x => x.Description)
                 });
             }
@@ -68,9 +76,16 @@ namespace WebAPI.Controllers
 
             await _userManager.AddToRoleAsync(user, UserRoles.User);
 
-            return Ok(new Response { Succeeded = true, Message = "User created successfully!" });
+            return Ok(new Response { Succeeded = true, Message = "User created successfully" });
         }
 
+        /// <summary>
+        /// Register the admin account in the Colectiva system
+        /// </summary>
+        /// <response code="200">User creation successfully</response>
+        /// <response code="500">User already exists</response>
+        [ProducesResponseType(typeof(RegisterResponseStatus200), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(RegisterResponseStatus500), StatusCodes.Status500InternalServerError)]
         [HttpPost]
         [Route("RegisterAdmin")]
         public async Task<IActionResult> RegisterAdminAsync(RegisterModel register)
@@ -98,7 +113,7 @@ namespace WebAPI.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response<bool>
                 {
                     Succeeded = false,
-                    Message = "User creation failed! Please check user details and try agian.",
+                    Message = "User creation failed! Please check user details and try agian",
                     Errors = result.Errors.Select(x => x.Description)
                 });
             }
@@ -108,9 +123,12 @@ namespace WebAPI.Controllers
 
             await _userManager.AddToRoleAsync(user, UserRoles.Admin);
 
-            return Ok(new Response { Succeeded = true, Message = "User created successfully!" });
+            return Ok(new Response { Succeeded = true, Message = "User created successfully" });
         }
 
+        /// <summary>
+        /// Login the account in the Colectiva system
+        /// </summary>
         [HttpPost]
         [Route("Login")]
         public async Task<IActionResult> LoginAsync(LoginModel login)

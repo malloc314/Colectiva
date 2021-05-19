@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebAPI.Middlewares;
 
 namespace WebAPI.Installers
 {
@@ -28,9 +29,12 @@ namespace WebAPI.Installers
                 .AddFluentValidation(options => 
                 {
                     options.RegisterValidatorsFromAssemblyContaining<PseudoProbableSequenceValidator>();
-                });
+                })
+                .AddXmlSerializerFormatters();
 
             services.AddAuthentication();
+
+            services.AddScoped<ErrorHandlingMiddleware>();
         }
     }
 }
