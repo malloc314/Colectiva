@@ -93,6 +93,7 @@ namespace Application.Services
 
                 var pseudoProbableSequence = new PseudoProbableSequence()
                 {
+                    GuidId = Guid.NewGuid(),
                     First = firstDraw,
                     Second = secondDraw,
                     Thrid = thridDraw,
