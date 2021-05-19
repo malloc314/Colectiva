@@ -73,13 +73,7 @@ namespace WebAPI.Controllers
             var userOwnsPseudo = _pseudoProbableSequenceService.UserOwnsPseudoProbableSequence(pseudoId, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (!userOwnsPseudo)
-            {
-                return BadRequest(new Response<bool>() 
-                { 
-                    Succeeded = false,
-                    Message = "You don't own this pseudo-probable sequence"
-                });
-            }
+                return BadRequest(new Response(false, "You don't own this pseudo-probable sequence"));
 
             var pseudoSequencesDto = _pseudoProbableSequenceService.GetPseudoProbableSequenceById(pseudoId);
 
@@ -96,13 +90,7 @@ namespace WebAPI.Controllers
             var isAdmin = User.FindFirstValue(ClaimTypes.Role).Contains(UserRoles.Admin);
 
             if (!isAdmin && !userOwnsPseudo)
-            {
-                return BadRequest(new Response<bool>()
-                {
-                    Succeeded = false,
-                    Message = "You don't own this pseudo-probable sequence"
-                });
-            }
+                return BadRequest(new Response(false, "You don't own this pseudo-probable sequence"));
 
             _pseudoProbableSequenceService.DeletePseudoProbableSequence(pseudoId);
 
