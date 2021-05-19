@@ -10,9 +10,11 @@ namespace Domain.Entities
 {
     [Table("PseudoProbableSequences")]
     public class PseudoProbableSequence
-    {
+    {   
         [Key]
         public int Id { get; set; }
+        [Required]
+        public Guid GuidId { get; set; }
         [Required]
         public byte First { get; set; }
         [Required]
@@ -32,3 +34,7 @@ namespace Domain.Entities
         public string UserId { get; set; }
     }
 }
+
+//[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+//[Key]
+//public Guid TestGuidId { get; set; }
